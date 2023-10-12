@@ -10,13 +10,15 @@ This repository was created to track the patching practices learned through the 
 
 ### Repo structure
 
-The *book-examples* directory represents almost all the patches showed as examples in the book. The *modules* directory holds broad experiments from the lessons learned, hopefully will be very populated in the near future.
+The *book-examples* directory represents almost all the patches showed as examples in the book. The *modules* directory holds broad experiments from the lessons learned, hopefully will be very populated in the near future. The *utils* directory holds small examples and different utilities that can be used or consulted for patching.
 
 ```
 /
 |___/book-examples
 |
 |___/modules
+|
+|___/utils
 |
 | README.md
 ```
