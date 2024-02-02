@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 7,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -248,8 +248,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 7,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -422,14 +422,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 7,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 973.0, 590.0, 640.0, 480.0 ],
+						"rect" : [ 161.0, 223.0, 289.0, 420.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -467,7 +467,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 50.0, 44.0, 30.0, 30.0 ]
+									"patching_rect" : [ 65.0, 74.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -478,7 +478,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 87.0, 152.0, 32.0, 22.0 ],
+									"patching_rect" : [ 102.0, 182.0, 32.0, 22.0 ],
 									"text" : "mtof"
 								}
 
@@ -490,7 +490,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 87.0, 176.0, 43.0, 22.0 ],
+									"patching_rect" : [ 102.0, 206.0, 43.0, 22.0 ],
 									"text" : "cycle~"
 								}
 
@@ -502,7 +502,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 87.0, 127.0, 112.0, 22.0 ],
+									"patching_rect" : [ 102.0, 157.0, 112.0, 22.0 ],
 									"text" : "expr ($f1 * 12) + 60"
 								}
 
@@ -518,7 +518,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "signal", "float" ],
-									"patching_rect" : [ 50.0, 100.0, 56.0, 22.0 ],
+									"patching_rect" : [ 65.0, 130.0, 56.0, 22.0 ],
 									"sig" : 0.0
 								}
 
@@ -531,7 +531,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 86.999994777777999, 258.0, 30.0, 30.0 ]
+									"patching_rect" : [ 102.0, 288.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -632,8 +632,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 7,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -797,8 +797,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 7,
+											"minor" : 6,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
