@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 668.0, 625.0, 415.0 ],
+		"rect" : [ 34.0, 632.0, 625.0, 415.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -129,7 +129,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 38.0, 100.0, 596.0, 471.0 ],
+						"rect" : [ 493.0, 89.0, 368.0, 446.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -164,7 +164,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 307.0, 367.0, 68.0, 22.0 ],
+									"patching_rect" : [ 176.0, 352.0, 68.0, 22.0 ],
 									"text" : "out 3 step8"
 								}
 
@@ -176,7 +176,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 401.0, 367.0, 55.0, 22.0 ],
+									"patching_rect" : [ 250.0, 352.0, 55.0, 22.0 ],
 									"text" : "out 4 trig"
 								}
 
@@ -188,7 +188,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 401.0, 172.0, 76.0, 22.0 ],
+									"patching_rect" : [ 250.0, 157.0, 76.0, 22.0 ],
 									"text" : "go.ramp2trig"
 								}
 
@@ -200,7 +200,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 401.0, 86.0, 105.0, 22.0 ],
+									"patching_rect" : [ 250.0, 71.0, 105.0, 22.0 ],
 									"text" : "param clockHz 10"
 								}
 
@@ -212,7 +212,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 401.0, 127.0, 45.0, 22.0 ],
+									"patching_rect" : [ 250.0, 112.0, 45.0, 22.0 ],
 									"text" : "phasor"
 								}
 
@@ -224,7 +224,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 8,
 									"outlettype" : [ "", "", "", "", "", "", "", "" ],
-									"patching_rect" : [ 212.0, 289.0, 114.0, 22.0 ],
+									"patching_rect" : [ 81.0, 274.0, 114.0, 22.0 ],
 									"text" : "go.shiftregister8"
 								}
 
@@ -236,7 +236,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 124.0, 172.0, 48.0, 22.0 ],
+									"patching_rect" : [ 19.0, 157.0, 48.0, 22.0 ],
 									"text" : "triangle"
 								}
 
@@ -248,7 +248,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 124.0, 86.0, 97.0, 22.0 ],
+									"patching_rect" : [ 19.0, 71.0, 97.0, 22.0 ],
 									"text" : "param LfoHz 0.5"
 								}
 
@@ -260,7 +260,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 212.0, 367.0, 77.0, 22.0 ],
+									"patching_rect" : [ 81.0, 352.0, 77.0, 22.0 ],
 									"text" : "out 2 melody"
 								}
 
@@ -272,7 +272,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 124.0, 367.0, 51.0, 22.0 ],
+									"patching_rect" : [ 19.0, 352.0, 51.0, 22.0 ],
 									"text" : "out 1 lfo"
 								}
 
@@ -284,7 +284,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 124.0, 127.0, 45.0, 22.0 ],
+									"patching_rect" : [ 19.0, 112.0, 45.0, 22.0 ],
 									"text" : "phasor"
 								}
 
@@ -315,7 +315,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-28", 0 ],
-									"midpoints" : [ 133.5, 240.0, 221.5, 240.0 ],
+									"midpoints" : [ 28.5, 225.0, 90.5, 225.0 ],
 									"order" : 0,
 									"source" : [ "obj-27", 0 ]
 								}
@@ -338,7 +338,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-28", 1 ],
-									"midpoints" : [ 410.5, 241.0, 316.5, 241.0 ],
+									"midpoints" : [ 259.5, 226.0, 185.5, 226.0 ],
 									"order" : 1,
 									"source" : [ "obj-29", 0 ]
 								}
@@ -3253,7 +3253,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 38.0, 100.0, 596.0, 471.0 ],
+						"rect" : [ 34.0, 87.0, 388.0, 448.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3288,7 +3288,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 341.0, 367.0, 55.0, 22.0 ],
+									"patching_rect" : [ 266.0, 367.0, 55.0, 22.0 ],
 									"text" : "out 3 trig"
 								}
 
@@ -3300,7 +3300,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 341.0, 172.0, 76.0, 22.0 ],
+									"patching_rect" : [ 266.0, 172.0, 76.0, 22.0 ],
 									"text" : "go.ramp2trig"
 								}
 
@@ -3312,7 +3312,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 341.0, 86.0, 98.0, 22.0 ],
+									"patching_rect" : [ 266.0, 86.0, 98.0, 22.0 ],
 									"text" : "param clockHz 7"
 								}
 
@@ -3324,7 +3324,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 341.0, 127.0, 45.0, 22.0 ],
+									"patching_rect" : [ 266.0, 127.0, 45.0, 22.0 ],
 									"text" : "phasor"
 								}
 
@@ -3336,7 +3336,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 212.0, 289.0, 34.0, 22.0 ],
+									"patching_rect" : [ 137.0, 289.0, 34.0, 22.0 ],
 									"text" : "latch"
 								}
 
@@ -3348,7 +3348,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 124.0, 172.0, 38.0, 22.0 ],
+									"patching_rect" : [ 49.0, 172.0, 38.0, 22.0 ],
 									"text" : "go.lfo"
 								}
 
@@ -3360,7 +3360,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 124.0, 86.0, 87.0, 22.0 ],
+									"patching_rect" : [ 49.0, 86.0, 87.0, 22.0 ],
 									"text" : "param LfoHz 5"
 								}
 
@@ -3372,7 +3372,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 212.0, 367.0, 77.0, 22.0 ],
+									"patching_rect" : [ 137.0, 367.0, 77.0, 22.0 ],
 									"text" : "out 2 melody"
 								}
 
@@ -3384,7 +3384,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 124.0, 367.0, 51.0, 22.0 ],
+									"patching_rect" : [ 49.0, 367.0, 51.0, 22.0 ],
 									"text" : "out 1 lfo"
 								}
 
@@ -3396,7 +3396,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 124.0, 127.0, 45.0, 22.0 ],
+									"patching_rect" : [ 49.0, 127.0, 45.0, 22.0 ],
 									"text" : "phasor"
 								}
 
@@ -5906,42 +5906,42 @@
 		"dependency_cache" : [ 			{
 				"name" : "go.lfo.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "go.ramp2trig.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "go.shiftregister8.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "go.unit.arc.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "go.unit.lfo.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "go.unit.triangle.gendsp",
 				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
-				"patcherrelativepath" : "../../../../../../Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
