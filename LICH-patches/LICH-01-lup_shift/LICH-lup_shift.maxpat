@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 611.0, 238.0, 796.0, 571.0 ],
+		"rect" : [ 34.0, 432.0, 796.0, 571.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1043,7 +1043,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 541.0, 310.0, 1259.0, 856.0 ],
+						"rect" : [ 557.0, 157.0, 1259.0, 856.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1448,7 +1448,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 507.0, 81.0, 111.0, 22.0 ],
-									"text" : "data nobufC 48000"
+									"text" : "data nobufC 24000"
 								}
 
 							}
@@ -4590,7 +4590,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 507.0, 57.0, 110.0, 22.0 ],
-									"text" : "data nobufB 33600"
+									"text" : "data nobufB 24000"
 								}
 
 							}
@@ -4603,7 +4603,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 507.0, 33.0, 109.0, 22.0 ],
-									"text" : "data nobufA 38400"
+									"text" : "data nobufA 24000"
 								}
 
 							}
