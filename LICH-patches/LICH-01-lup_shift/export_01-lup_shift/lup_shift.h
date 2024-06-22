@@ -61,7 +61,7 @@ Details of the GPLv3 license can be found at: https://www.gnu.org/licenses/gpl-3
 #include "genlib_exportfunctions.h"
 #include "genlib_ops.h"
 
-namespace easy_lup {
+namespace lup_shift {
 
 int num_inputs();
 int num_outputs();
@@ -81,4 +81,4 @@ short setstate(CommonState *cself, const char *state);
 void *create(t_param sr, long vs);
 void destroy(CommonState *cself);
 
-} // easy_lup::
+} // lup_shift::

@@ -68,39 +68,39 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Change __m_change_9;
-	Delta __m_delta_11;
-	Phasor __m_phasor_8;
+	Change __m_change_10;
+	Delta __m_delta_9;
 	Phasor __m_phasor_12;
+	Phasor __m_phasor_8;
 	int __exception;
 	int vectorsize;
-	t_sample samplerate;
-	t_sample m_ButtonB_3;
-	t_sample __m_latch_10;
-	t_sample m_D_2;
-	t_sample samples_to_seconds;
-	t_sample m_ButtonA_6;
-	t_sample m_A_7;
-	t_sample m_C_4;
+	t_sample m_D_3;
 	t_sample m_history_1;
-	t_sample m_B_5;
+	t_sample samplerate;
+	t_sample m_C_2;
+	t_sample samples_to_seconds;
+	t_sample m_B_6;
+	t_sample m_A_7;
+	t_sample m_ButtonB_4;
+	t_sample __m_latch_11;
+	t_sample m_ButtonA_5;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
 		m_history_1 = ((int)0);
-		m_D_2 = ((int)0);
-		m_ButtonB_3 = ((int)0);
-		m_C_4 = ((int)0);
-		m_B_5 = ((int)0);
-		m_ButtonA_6 = ((int)0);
+		m_C_2 = ((int)0);
+		m_D_3 = ((int)0);
+		m_ButtonB_4 = ((int)0);
+		m_ButtonA_5 = ((int)0);
+		m_B_6 = ((int)0);
 		m_A_7 = ((int)0);
 		samples_to_seconds = (1 / samplerate);
 		__m_phasor_8.reset(0);
-		__m_change_9.reset(0);
-		__m_latch_10 = 0;
-		__m_delta_11.reset(0);
+		__m_delta_9.reset(0);
+		__m_change_10.reset(0);
+		__m_latch_11 = 0;
 		__m_phasor_12.reset(0);
 		genlib_reset_complete(this);
 		
@@ -124,37 +124,37 @@ typedef struct State {
 			return __exception;
 			
 		};
-		t_sample sub_422 = (m_A_7 - ((int)0));
-		t_sample scale_419 = ((safepow((sub_422 * ((t_sample)1)), ((int)1)) * ((t_sample)99.9)) + ((t_sample)0.1));
-		t_sample scale_236 = scale_419;
+		t_sample sub_431 = (m_A_7 - ((int)0));
+		t_sample scale_428 = ((safepow((sub_431 * ((t_sample)1)), ((int)1)) * ((t_sample)99.9)) + ((t_sample)0.1));
+		t_sample scale_424 = scale_428;
 		samples_to_seconds = (1 / samplerate);
-		t_sample add_360 = (scale_236 + ((int)100));
+		t_sample add_409 = (scale_424 + ((int)100));
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
 			t_sample out6 = ((int)0);
 			t_sample out2 = ((int)0);
-			t_sample phasor_245 = __m_phasor_8(scale_236, samples_to_seconds);
-			t_sample out3 = phasor_245;
-			t_sample noise_225 = noise();
-			t_sample sub_316 = (phasor_245 - m_history_1);
-			t_sample add_317 = (phasor_245 + m_history_1);
-			t_sample div_315 = safediv(sub_316, add_317);
-			t_sample abs_314 = fabs(div_315);
-			int gt_312 = (abs_314 > ((t_sample)0.5));
-			int change_311 = __m_change_9(gt_312);
-			int gt_310 = (change_311 > ((int)0));
-			t_sample history_313_next_318 = fixdenorm(phasor_245);
-			__m_latch_10 = ((gt_310 != 0) ? noise_225 : __m_latch_10);
-			t_sample latch_284 = __m_latch_10;
-			t_sample out4 = latch_284;
-			t_sample delta_250 = __m_delta_11(phasor_245);
-			t_sample abs_267 = fabs(delta_250);
-			t_sample out5 = abs_267;
-			t_sample phasor_369 = __m_phasor_12(add_360, samples_to_seconds);
-			t_sample out1 = phasor_369;
-			m_history_1 = history_313_next_318;
+			t_sample phasor_423 = __m_phasor_8(scale_424, samples_to_seconds);
+			t_sample out3 = phasor_423;
+			t_sample delta_422 = __m_delta_9(phasor_423);
+			t_sample abs_421 = fabs(delta_422);
+			t_sample out5 = abs_421;
+			t_sample noise_425 = noise();
+			t_sample sub_416 = (phasor_423 - m_history_1);
+			t_sample add_417 = (phasor_423 + m_history_1);
+			t_sample div_415 = safediv(sub_416, add_417);
+			t_sample abs_414 = fabs(div_415);
+			int gt_412 = (abs_414 > ((t_sample)0.5));
+			int change_411 = __m_change_10(gt_412);
+			int gt_410 = (change_411 > ((int)0));
+			t_sample history_413_next_418 = fixdenorm(phasor_423);
+			__m_latch_11 = ((gt_410 != 0) ? noise_425 : __m_latch_11);
+			t_sample latch_420 = __m_latch_11;
+			t_sample out4 = latch_420;
+			t_sample phasor_408 = __m_phasor_12(add_409, samples_to_seconds);
+			t_sample out1 = phasor_408;
+			m_history_1 = history_413_next_418;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -167,20 +167,20 @@ typedef struct State {
 		return __exception;
 		
 	};
+	inline void set_C(t_param _value) {
+		m_C_2 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+	};
 	inline void set_D(t_param _value) {
-		m_D_2 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+		m_D_3 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
 	};
 	inline void set_ButtonB(t_param _value) {
-		m_ButtonB_3 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
-	};
-	inline void set_C(t_param _value) {
-		m_C_4 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
-	};
-	inline void set_B(t_param _value) {
-		m_B_5 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+		m_ButtonB_4 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_ButtonA(t_param _value) {
-		m_ButtonA_6 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_ButtonA_5 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_B(t_param _value) {
+		m_B_6 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
 	};
 	inline void set_A(t_param _value) {
 		m_A_7 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
@@ -243,11 +243,11 @@ void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
 		case 0: *value = self->m_A_7; break;
-		case 1: *value = self->m_B_5; break;
-		case 2: *value = self->m_ButtonA_6; break;
-		case 3: *value = self->m_ButtonB_3; break;
-		case 4: *value = self->m_C_4; break;
-		case 5: *value = self->m_D_2; break;
+		case 1: *value = self->m_B_6; break;
+		case 2: *value = self->m_ButtonA_5; break;
+		case 3: *value = self->m_ButtonB_4; break;
+		case 4: *value = self->m_C_2; break;
+		case 5: *value = self->m_D_3; break;
 		
 		default: break;
 	}
@@ -344,11 +344,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 1 ("m_B_5")
+	// initialize parameter 1 ("m_B_6")
 	pi = self->__commonstate.params + 1;
 	pi->name = "B";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_B_5;
+	pi->defaultvalue = self->m_B_6;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -358,11 +358,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 2 ("m_ButtonA_6")
+	// initialize parameter 2 ("m_ButtonA_5")
 	pi = self->__commonstate.params + 2;
 	pi->name = "ButtonA";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonA_6;
+	pi->defaultvalue = self->m_ButtonA_5;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -372,11 +372,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 3 ("m_ButtonB_3")
+	// initialize parameter 3 ("m_ButtonB_4")
 	pi = self->__commonstate.params + 3;
 	pi->name = "ButtonB";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonB_3;
+	pi->defaultvalue = self->m_ButtonB_4;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -386,11 +386,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 4 ("m_C_4")
+	// initialize parameter 4 ("m_C_2")
 	pi = self->__commonstate.params + 4;
 	pi->name = "C";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_C_4;
+	pi->defaultvalue = self->m_C_2;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -400,11 +400,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 5 ("m_D_2")
+	// initialize parameter 5 ("m_D_3")
 	pi = self->__commonstate.params + 5;
 	pi->name = "D";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_D_2;
+	pi->defaultvalue = self->m_D_3;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
