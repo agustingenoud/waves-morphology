@@ -68,61 +68,61 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Data m_nobufB_15;
-	Data m_nobufC_12;
-	Data m_nobufA_10;
+	Data m_nobufC_15;
+	Data m_nobufB_9;
+	Data m_nobufA_7;
 	Delay m_delay_5;
 	Delay m_delay_4;
 	Delay m_delay_3;
 	Delay m_delay_6;
 	Delta __m_delta_78;
-	Delta __m_delta_24;
-	Delta __m_delta_90;
+	Delta __m_delta_62;
+	Delta __m_delta_56;
 	Delta __m_delta_58;
 	Delta __m_delta_54;
-	Delta __m_delta_52;
-	Delta __m_delta_56;
-	Delta __m_delta_62;
-	Delta __m_delta_16;
+	Delta __m_delta_33;
 	Delta __m_delta_74;
+	Delta __m_delta_90;
+	Delta __m_delta_16;
+	Delta __m_delta_52;
 	Phasor __m_phasor_41;
 	Phasor __m_phasor_60;
-	Phasor __m_phasor_73;
 	Phasor __m_phasor_61;
 	Phasor __m_phasor_77;
-	Phasor __m_phasor_89;
+	Phasor __m_phasor_73;
 	Phasor __m_phasor_51;
-	PlusEquals __m_pluseq_27;
+	Phasor __m_phasor_89;
 	PlusEquals __m_pluseq_17;
-	PlusEquals __m_pluseq_32;
-	PlusEquals __m_pluseq_25;
-	Sah __m_sah_57;
-	Sah __m_sah_53;
+	PlusEquals __m_pluseq_34;
+	PlusEquals __m_pluseq_24;
+	PlusEquals __m_pluseq_19;
 	Sah __m_sah_59;
+	Sah __m_sah_53;
+	Sah __m_sah_57;
 	Sah __m_sah_55;
 	int __exception;
 	int vectorsize;
-	t_sample __m_carry_35;
+	t_sample __m_carry_37;
 	t_sample __m_latch_75;
-	t_sample m_C_7;
+	t_sample m_B_8;
 	t_sample __m_latch_76;
-	t_sample m_D_8;
+	t_sample m_D_10;
 	t_sample m_history_2;
 	t_sample __m_latch_79;
 	t_sample m_history_1;
 	t_sample samplerate;
 	t_sample samples_to_seconds;
 	t_sample __m_latch_63;
-	t_sample m_A_11;
-	t_sample __m_carry_30;
+	t_sample m_A_12;
+	t_sample __m_carry_27;
 	t_sample __m_latch_91;
-	t_sample __m_count_33;
-	t_sample m_ButtonA_9;
-	t_sample __m_count_28;
-	t_sample __m_count_18;
-	t_sample __m_carry_20;
-	t_sample m_ButtonB_13;
-	t_sample m_B_14;
+	t_sample __m_count_35;
+	t_sample m_C_11;
+	t_sample __m_count_25;
+	t_sample __m_count_20;
+	t_sample __m_carry_22;
+	t_sample m_ButtonA_13;
+	t_sample m_ButtonB_14;
 	t_sample __m_latch_92;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
@@ -135,27 +135,27 @@ typedef struct State {
 		m_delay_4.reset("m_delay_4", samplerate);
 		m_delay_5.reset("m_delay_5", samplerate);
 		m_delay_6.reset("m_delay_6", samplerate);
-		m_C_7 = ((int)0);
-		m_D_8 = ((int)0);
-		m_ButtonA_9 = ((int)0);
-		m_nobufA_10.reset("nobufA", ((int)38400), ((int)1));
-		m_A_11 = ((int)0);
-		m_nobufC_12.reset("nobufC", ((int)48000), ((int)1));
-		m_ButtonB_13 = ((int)0);
-		m_B_14 = ((int)0);
-		m_nobufB_15.reset("nobufB", ((int)33600), ((int)1));
+		m_nobufA_7.reset("nobufA", ((int)38400), ((int)1));
+		m_B_8 = ((int)0);
+		m_nobufB_9.reset("nobufB", ((int)33600), ((int)1));
+		m_D_10 = ((int)0);
+		m_C_11 = ((int)0);
+		m_A_12 = ((int)0);
+		m_ButtonA_13 = ((int)0);
+		m_ButtonB_14 = ((int)0);
+		m_nobufC_15.reset("nobufC", ((int)48000), ((int)1));
 		__m_delta_16.reset(0);
 		__m_pluseq_17.reset(0);
-		__m_count_18 = 0;
-		__m_carry_20 = 0;
-		__m_delta_24.reset(0);
-		__m_pluseq_25.reset(0);
-		__m_pluseq_27.reset(0);
-		__m_count_28 = 0;
-		__m_carry_30 = 0;
-		__m_pluseq_32.reset(0);
-		__m_count_33 = 0;
-		__m_carry_35 = 0;
+		__m_pluseq_19.reset(0);
+		__m_count_20 = 0;
+		__m_carry_22 = 0;
+		__m_pluseq_24.reset(0);
+		__m_count_25 = 0;
+		__m_carry_27 = 0;
+		__m_delta_33.reset(0);
+		__m_pluseq_34.reset(0);
+		__m_count_35 = 0;
+		__m_carry_37 = 0;
 		samples_to_seconds = (1 / samplerate);
 		__m_phasor_41.reset(0);
 		__m_phasor_51.reset(0);
@@ -200,312 +200,319 @@ typedef struct State {
 			return __exception;
 			
 		};
-		t_sample expr_486 = ((m_C_7 * ((int)2)) - ((int)1));
-		int nobufC_dim = m_nobufC_12.dim;
-		int nobufC_channels = m_nobufC_12.channels;
-		int dim_466 = nobufC_dim;
-		int nobufA_dim = m_nobufA_10.dim;
-		int nobufA_channels = m_nobufA_10.channels;
-		int dim_120 = nobufA_dim;
-		int nobufB_dim = m_nobufB_15.dim;
-		int nobufB_channels = m_nobufB_15.channels;
-		int dim_113 = nobufB_dim;
-		t_sample paramA_157 = m_A_11;
-		t_sample paramA_179 = paramA_157;
+		t_sample expr_573 = ((m_C_11 * ((int)2)) - ((int)1));
+		int nobufB_dim = m_nobufB_9.dim;
+		int nobufB_channels = m_nobufB_9.channels;
+		int dim_476 = nobufB_dim;
+		int nobufA_dim = m_nobufA_7.dim;
+		int nobufA_channels = m_nobufA_7.channels;
+		int dim_483 = nobufA_dim;
+		int nobufC_dim = m_nobufC_15.dim;
+		int nobufC_channels = m_nobufC_15.channels;
+		int dim_348 = nobufC_dim;
+		t_sample sub_577 = (m_D_10 - ((int)0));
+		t_sample scale_574 = ((safepow((sub_577 * ((t_sample)1)), ((int)1)) * ((t_sample)1.25)) + ((int)0));
+		t_sample sub_359 = (scale_574 - ((t_sample)0.25));
 		samples_to_seconds = (1 / samplerate);
-		t_sample sub_587 = (m_A_11 - ((int)0));
-		t_sample scale_584 = ((safepow((sub_587 * ((t_sample)20)), ((int)1)) * ((int)1)) + ((int)0));
-		t_sample clamp_8 = ((scale_584 <= ((int)0)) ? ((int)0) : ((scale_584 >= ((int)1)) ? ((int)1) : scale_584));
-		t_sample sub_591 = (m_B_14 - ((int)0));
-		t_sample scale_588 = ((safepow((sub_591 * ((t_sample)1)), ((int)1)) * ((int)2)) + ((int)0));
-		t_sample mstosamps_87 = (((int)256) * (samplerate * 0.001));
-		t_sample mul_23 = (mstosamps_87 * ((t_sample)0.2));
-		t_sample rsub_73 = (((int)1) - scale_588);
-		t_sample mul_72 = (rsub_73 * ((int)1000));
-		t_sample div_71 = (mul_72 * ((t_sample)0.00390625));
-		t_sample sub_595 = (scale_588 - ((int)0));
-		t_sample scale_592 = ((safepow((sub_595 * ((t_sample)10)), ((int)1)) * ((int)1)) + ((int)0));
-		t_sample clamp_13 = ((scale_592 <= ((int)0)) ? ((int)0) : ((scale_592 >= ((int)1)) ? ((int)1) : scale_592));
-		t_sample sub_599 = (m_A_11 - ((t_sample)0.0001));
-		t_sample scale_596 = ((safepow((sub_599 * ((t_sample)1.000200040008)), ((int)1)) * ((int)8)) + ((int)1));
-		int int_218 = int(scale_596);
-		int dim_131 = nobufA_dim;
-		t_sample div_132 = safediv(samplerate, dim_131);
-		t_sample sub_603 = (paramA_179 - ((int)0));
-		t_sample scale_600 = ((safepow((sub_603 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
-		t_sample scale_171 = scale_600;
-		int dim_130 = nobufB_dim;
-		t_sample div_137 = safediv(samplerate, dim_130);
-		t_sample sub_608 = (paramA_157 - ((int)0));
-		t_sample scale_605 = ((safepow((sub_608 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
-		t_sample scale_149 = scale_605;
+		t_sample paramA_532 = m_A_12;
+		t_sample paramA_513 = paramA_532;
+		t_sample sub_581 = (m_A_12 - ((int)0));
+		t_sample scale_578 = ((safepow((sub_581 * ((t_sample)20)), ((int)1)) * ((int)1)) + ((int)0));
+		t_sample clamp_374 = ((scale_578 <= ((int)0)) ? ((int)0) : ((scale_578 >= ((int)1)) ? ((int)1) : scale_578));
+		t_sample sub_585 = (m_B_8 - ((int)0));
+		t_sample scale_582 = ((safepow((sub_585 * ((t_sample)1)), ((int)1)) * ((int)2)) + ((int)0));
+		t_sample mstosamps_453 = (((int)256) * (samplerate * 0.001));
+		t_sample mul_389 = (mstosamps_453 * ((t_sample)0.2));
+		t_sample rsub_439 = (((int)1) - scale_582);
+		t_sample mul_438 = (rsub_439 * ((int)1000));
+		t_sample div_437 = (mul_438 * ((t_sample)0.00390625));
+		t_sample sub_589 = (scale_582 - ((int)0));
+		t_sample scale_586 = ((safepow((sub_589 * ((t_sample)10)), ((int)1)) * ((int)1)) + ((int)0));
+		t_sample clamp_379 = ((scale_586 <= ((int)0)) ? ((int)0) : ((scale_586 >= ((int)1)) ? ((int)1) : scale_586));
+		t_sample sub_593 = (m_A_12 - ((t_sample)0.0001));
+		t_sample scale_590 = ((safepow((sub_593 * ((t_sample)1.000200040008)), ((int)1)) * ((int)8)) + ((int)1));
+		int int_571 = int(scale_590);
+		int dim_490 = nobufA_dim;
+		t_sample div_491 = safediv(samplerate, dim_490);
+		t_sample sub_597 = (paramA_532 - ((int)0));
+		t_sample scale_594 = ((safepow((sub_597 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
+		t_sample scale_527 = scale_594;
+		int dim_489 = nobufB_dim;
+		t_sample div_496 = safediv(samplerate, dim_489);
+		t_sample sub_602 = (paramA_513 - ((int)0));
+		t_sample scale_599 = ((safepow((sub_602 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
+		t_sample scale_508 = scale_599;
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			t_sample tap_465 = m_delay_6.read_step(dim_466);
-			t_sample delta_471 = __m_delta_16(m_ButtonB_13);
-			t_sample gtp_470 = ((delta_471 > ((int)0)) ? delta_471 : 0);
-			t_sample plusequals_463 = __m_pluseq_17.post(gtp_470, tap_465, 0);
-			__m_count_18 = (gtp_470 ? 0 : (fixdenorm(__m_count_18 + plusequals_463)));
-			int carry_19 = 0;
-			if ((gtp_470 != 0)) {
-				__m_count_18 = 0;
-				__m_carry_20 = 0;
+			t_sample tap_475 = m_delay_6.read_step(dim_476);
+			t_sample tap_482 = m_delay_5.read_step(dim_483);
+			t_sample delta_472 = __m_delta_16(m_ButtonA_13);
+			t_sample gtp_471 = ((delta_472 > ((int)0)) ? delta_472 : 0);
+			t_sample plusequals_470 = __m_pluseq_17.post(gtp_471, ((int)0), 0);
+			t_sample mod_469 = safemod(plusequals_470, ((int)2));
+			t_sample add_466 = (mod_469 + ((int)1));
+			t_sample choice_18 = int(add_466);
+			t_sample gate_467 = (((choice_18 >= 1) && (choice_18 < 2)) ? gtp_471 : 0);
+			t_sample gate_468 = ((choice_18 >= 2) ? gtp_471 : 0);
+			t_sample plusequals_473 = __m_pluseq_19.post(gate_468, tap_475, 0);
+			__m_count_20 = (gate_468 ? 0 : (fixdenorm(__m_count_20 + plusequals_473)));
+			int carry_21 = 0;
+			if ((gate_468 != 0)) {
+				__m_count_20 = 0;
+				__m_carry_22 = 0;
 				
-			} else if (((dim_466 > 0) && (__m_count_18 >= dim_466))) {
-				int wraps_21 = (__m_count_18 / dim_466);
-				__m_carry_20 = (__m_carry_20 + wraps_21);
-				__m_count_18 = (__m_count_18 - (wraps_21 * dim_466));
-				carry_19 = 1;
-				
-			};
-			t_sample counter_467 = __m_count_18;
-			int counter_468 = carry_19;
-			int counter_469 = __m_carry_20;
-			int index_trunc_22 = fixnan(floor(counter_467));
-			int index_wrap_23 = ((index_trunc_22 < 0) ? ((nobufC_dim - 1) + ((index_trunc_22 + 1) % nobufC_dim)) : (index_trunc_22 % nobufC_dim));
-			m_nobufC_12.write(in1, index_wrap_23, 0);
-			t_sample tap_119 = m_delay_5.read_step(dim_120);
-			t_sample tap_112 = m_delay_4.read_step(dim_113);
-			t_sample delta_109 = __m_delta_24(m_ButtonA_9);
-			t_sample gtp_108 = ((delta_109 > ((int)0)) ? delta_109 : 0);
-			t_sample plusequals_107 = __m_pluseq_25.post(gtp_108, ((int)0), 0);
-			t_sample mod_106 = safemod(plusequals_107, ((int)2));
-			t_sample add_103 = (mod_106 + ((int)1));
-			t_sample choice_26 = int(add_103);
-			t_sample gate_104 = (((choice_26 >= 1) && (choice_26 < 2)) ? gtp_108 : 0);
-			t_sample gate_105 = ((choice_26 >= 2) ? gtp_108 : 0);
-			t_sample plusequals_117 = __m_pluseq_27.post(gate_104, tap_119, 0);
-			__m_count_28 = (gate_104 ? 0 : (fixdenorm(__m_count_28 + plusequals_117)));
-			int carry_29 = 0;
-			if ((gate_104 != 0)) {
-				__m_count_28 = 0;
-				__m_carry_30 = 0;
-				
-			} else if (((dim_120 > 0) && (__m_count_28 >= dim_120))) {
-				int wraps_31 = (__m_count_28 / dim_120);
-				__m_carry_30 = (__m_carry_30 + wraps_31);
-				__m_count_28 = (__m_count_28 - (wraps_31 * dim_120));
-				carry_29 = 1;
+			} else if (((dim_476 > 0) && (__m_count_20 >= dim_476))) {
+				int wraps_23 = (__m_count_20 / dim_476);
+				__m_carry_22 = (__m_carry_22 + wraps_23);
+				__m_count_20 = (__m_count_20 - (wraps_23 * dim_476));
+				carry_21 = 1;
 				
 			};
-			t_sample counter_121 = __m_count_28;
-			int counter_122 = carry_29;
-			int counter_123 = __m_carry_30;
-			t_sample plusequals_110 = __m_pluseq_32.post(gate_105, tap_112, 0);
-			__m_count_33 = (gate_105 ? 0 : (fixdenorm(__m_count_33 + plusequals_110)));
-			int carry_34 = 0;
-			if ((gate_105 != 0)) {
-				__m_count_33 = 0;
-				__m_carry_35 = 0;
+			t_sample counter_477 = __m_count_20;
+			int counter_478 = carry_21;
+			int counter_479 = __m_carry_22;
+			t_sample plusequals_480 = __m_pluseq_24.post(gate_467, tap_482, 0);
+			__m_count_25 = (gate_467 ? 0 : (fixdenorm(__m_count_25 + plusequals_480)));
+			int carry_26 = 0;
+			if ((gate_467 != 0)) {
+				__m_count_25 = 0;
+				__m_carry_27 = 0;
 				
-			} else if (((dim_113 > 0) && (__m_count_33 >= dim_113))) {
-				int wraps_36 = (__m_count_33 / dim_113);
-				__m_carry_35 = (__m_carry_35 + wraps_36);
-				__m_count_33 = (__m_count_33 - (wraps_36 * dim_113));
-				carry_34 = 1;
+			} else if (((dim_483 > 0) && (__m_count_25 >= dim_483))) {
+				int wraps_28 = (__m_count_25 / dim_483);
+				__m_carry_27 = (__m_carry_27 + wraps_28);
+				__m_count_25 = (__m_count_25 - (wraps_28 * dim_483));
+				carry_26 = 1;
 				
 			};
-			t_sample counter_114 = __m_count_33;
-			int counter_115 = carry_34;
-			int counter_116 = __m_carry_35;
-			int index_trunc_37 = fixnan(floor(counter_121));
-			int index_wrap_38 = ((index_trunc_37 < 0) ? ((nobufA_dim - 1) + ((index_trunc_37 + 1) % nobufA_dim)) : (index_trunc_37 % nobufA_dim));
-			m_nobufA_10.write(in1, index_wrap_38, 0);
-			int index_trunc_39 = fixnan(floor(counter_114));
-			int index_wrap_40 = ((index_trunc_39 < 0) ? ((nobufB_dim - 1) + ((index_trunc_39 + 1) % nobufB_dim)) : (index_trunc_39 % nobufB_dim));
-			m_nobufB_15.write(in1, index_wrap_40, 0);
-			t_sample mul_1 = (in2 * m_D_8);
-			t_sample noise_206 = noise();
-			t_sample noise_187 = noise();
-			t_sample phasor_480 = __m_phasor_41(expr_486, samples_to_seconds);
-			t_sample wrap_479 = wrap(phasor_480, ((int)0), ((int)1));
-			double sample_index_42 = (wrap_479 * (nobufC_dim - 1));
+			t_sample counter_484 = __m_count_25;
+			int counter_485 = carry_26;
+			int counter_486 = __m_carry_27;
+			int index_trunc_29 = fixnan(floor(counter_484));
+			int index_wrap_30 = ((index_trunc_29 < 0) ? ((nobufA_dim - 1) + ((index_trunc_29 + 1) % nobufA_dim)) : (index_trunc_29 % nobufA_dim));
+			m_nobufA_7.write(in1, index_wrap_30, 0);
+			int index_trunc_31 = fixnan(floor(counter_477));
+			int index_wrap_32 = ((index_trunc_31 < 0) ? ((nobufB_dim - 1) + ((index_trunc_31 + 1) % nobufB_dim)) : (index_trunc_31 % nobufB_dim));
+			m_nobufB_9.write(in1, index_wrap_32, 0);
+			t_sample tap_347 = m_delay_4.read_step(dim_348);
+			t_sample delta_353 = __m_delta_33(m_ButtonB_14);
+			t_sample gtp_352 = ((delta_353 > ((int)0)) ? delta_353 : 0);
+			t_sample plusequals_345 = __m_pluseq_34.post(gtp_352, tap_347, 0);
+			__m_count_35 = (gtp_352 ? 0 : (fixdenorm(__m_count_35 + plusequals_345)));
+			int carry_36 = 0;
+			if ((gtp_352 != 0)) {
+				__m_count_35 = 0;
+				__m_carry_37 = 0;
+				
+			} else if (((dim_348 > 0) && (__m_count_35 >= dim_348))) {
+				int wraps_38 = (__m_count_35 / dim_348);
+				__m_carry_37 = (__m_carry_37 + wraps_38);
+				__m_count_35 = (__m_count_35 - (wraps_38 * dim_348));
+				carry_36 = 1;
+				
+			};
+			t_sample counter_349 = __m_count_35;
+			int counter_350 = carry_36;
+			int counter_351 = __m_carry_37;
+			int index_trunc_39 = fixnan(floor(counter_349));
+			int index_wrap_40 = ((index_trunc_39 < 0) ? ((nobufC_dim - 1) + ((index_trunc_39 + 1) % nobufC_dim)) : (index_trunc_39 % nobufC_dim));
+			m_nobufC_15.write(in1, index_wrap_40, 0);
+			t_sample expr_365 = trapezoid_d_d_d_d_d(scale_574, ((t_sample)0.3), ((t_sample)0.4), ((t_sample)0.7), ((t_sample)0.8));
+			t_sample expr_366 = trapezoid_d_d_d_d_d(sub_359, ((t_sample)0.3), ((t_sample)0.4), ((t_sample)0.7), ((t_sample)0.8));
+			t_sample mul_363 = (in1 * expr_365);
+			t_sample mul_357 = (in2 * expr_366);
+			t_sample gen_367 = (mul_357 + mul_363);
+			t_sample phasor_344 = __m_phasor_41(expr_573, samples_to_seconds);
+			t_sample wrap_343 = wrap(phasor_344, ((int)0), ((int)1));
+			double sample_index_42 = (wrap_343 * (nobufC_dim - 1));
 			int index_trunc_43 = fixnan(floor(sample_index_42));
 			double index_fract_44 = (sample_index_42 - index_trunc_43);
 			int index_trunc_45 = (index_trunc_43 + 1);
 			bool index_ignore_46 = ((index_trunc_43 >= nobufC_dim) || (index_trunc_43 < 0));
 			bool index_ignore_47 = ((index_trunc_45 >= nobufC_dim) || (index_trunc_45 < 0));
 			// phase nobufC channel 1;
-			double read_nobufC_48 = (index_ignore_46 ? 0 : m_nobufC_12.read(index_trunc_43, 0));
-			double read_nobufC_49 = (index_ignore_47 ? 0 : m_nobufC_12.read(index_trunc_45, 0));
+			double read_nobufC_48 = (index_ignore_46 ? 0 : m_nobufC_15.read(index_trunc_43, 0));
+			double read_nobufC_49 = (index_ignore_47 ? 0 : m_nobufC_15.read(index_trunc_45, 0));
 			double readinterp_50 = linear_interp(index_fract_44, read_nobufC_48, read_nobufC_49);
-			t_sample sample_nobufC_477 = readinterp_50;
-			t_sample index_nobufC_478 = sample_index_42;
-			t_sample noise_35 = noise();
-			t_sample abs_50 = fabs(noise_35);
-			t_sample mul_49 = (abs_50 * ((t_sample)0.25));
-			t_sample add_27 = (mul_49 + ((int)1));
-			t_sample mul_89 = (add_27 * mstosamps_87);
-			t_sample noise_34 = noise();
-			t_sample abs_46 = fabs(noise_34);
-			t_sample mul_45 = (abs_46 * ((t_sample)0.25));
-			t_sample add_26 = (mul_45 + ((int)3));
-			t_sample mul_81 = (add_26 * mul_23);
-			t_sample noise_33 = noise();
-			t_sample abs_42 = fabs(noise_33);
-			t_sample mul_41 = (abs_42 * ((t_sample)0.25));
-			t_sample add_25 = (mul_41 + ((t_sample)1.7));
-			t_sample mul_65 = (add_25 * mstosamps_87);
-			t_sample noise_32 = noise();
-			t_sample abs_38 = fabs(noise_32);
-			t_sample mul_37 = (abs_38 * ((t_sample)0.25));
-			t_sample add_24 = (mul_37 + ((t_sample)2.37));
-			t_sample mul_58 = (add_24 * mstosamps_87);
-			t_sample phasor_95 = __m_phasor_51(div_71, samples_to_seconds);
-			t_sample add_94 = (phasor_95 + ((int)0));
-			t_sample mod_93 = safemod(add_94, ((int)1));
-			t_sample delta_52 = __m_delta_52(mod_93);
-			t_sample sah_51 = __m_sah_53(mul_89, delta_52, ((int)0));
-			t_sample mul_31 = (sah_51 * mod_93);
-			t_sample sub_92 = (mod_93 - ((t_sample)0.5));
-			t_sample mul_91 = (sub_92 * ((t_sample)3.1415926535898));
-			t_sample cos_90 = cos(mul_91);
-			t_sample mul_56 = (cos_90 * cos_90);
-			t_sample add_86 = (phasor_95 + ((t_sample)0.25));
-			t_sample mod_85 = safemod(add_86, ((int)1));
-			t_sample delta_48 = __m_delta_54(mod_85);
-			t_sample sah_47 = __m_sah_55(mul_81, delta_48, ((int)0));
-			t_sample mul_30 = (sah_47 * mod_85);
-			t_sample sub_84 = (mod_85 - ((t_sample)0.5));
-			t_sample mul_83 = (sub_84 * ((t_sample)3.1415926535898));
-			t_sample cos_82 = cos(mul_83);
-			t_sample mul_55 = (cos_82 * cos_82);
-			t_sample add_70 = (phasor_95 + ((t_sample)0.5));
-			t_sample mod_69 = safemod(add_70, ((int)1));
-			t_sample delta_44 = __m_delta_56(mod_69);
-			t_sample sah_43 = __m_sah_57(mul_65, delta_44, ((int)0));
-			t_sample mul_29 = (sah_43 * mod_69);
-			t_sample sub_68 = (mod_69 - ((t_sample)0.5));
-			t_sample mul_67 = (sub_68 * ((t_sample)3.1415926535898));
-			t_sample cos_66 = cos(mul_67);
-			t_sample mul_54 = (cos_66 * cos_66);
-			t_sample add_63 = (phasor_95 + ((t_sample)0.75));
-			t_sample mod_62 = safemod(add_63, ((int)1));
-			t_sample delta_40 = __m_delta_58(mod_62);
-			t_sample sah_39 = __m_sah_59(mul_58, delta_40, ((int)0));
-			t_sample mul_28 = (sah_39 * mod_62);
-			t_sample tap_77 = m_delay_3.read_linear(mul_31);
-			t_sample tap_78 = m_delay_3.read_linear(mul_30);
-			t_sample tap_79 = m_delay_3.read_linear(mul_29);
-			t_sample tap_80 = m_delay_3.read_linear(mul_28);
-			t_sample mul_75 = (tap_77 * mul_56);
-			t_sample mul_64 = (tap_79 * mul_54);
-			t_sample gen_99 = (mul_64 + mul_75);
-			t_sample mul_74 = (tap_78 * mul_55);
-			t_sample sub_61 = (mod_62 - ((t_sample)0.5));
-			t_sample mul_60 = (sub_61 * ((t_sample)3.1415926535898));
-			t_sample cos_59 = cos(mul_60);
-			t_sample mul_53 = (cos_59 * cos_59);
-			t_sample mul_57 = (tap_80 * mul_53);
-			t_sample gen_100 = (mul_57 + mul_74);
-			t_sample mul_21 = (gen_99 * ((t_sample)0.666));
-			t_sample mul_20 = (gen_100 * ((t_sample)0.666));
-			t_sample phasor_19 = __m_phasor_60(((int)22), samples_to_seconds);
-			t_sample triangle_17 = triangle(phasor_19, ((t_sample)0.5));
-			t_sample mul_16 = (mul_21 * triangle_17);
-			t_sample mul_12 = (mul_16 * clamp_13);
-			t_sample mul_15 = (mul_20 * triangle_17);
-			t_sample mul_11 = (mul_15 * clamp_13);
-			t_sample mul_203 = (noise_206 * m_A_11);
-			t_sample mul_184 = (noise_187 * m_A_11);
-			t_sample phasor_217 = __m_phasor_61(div_132, samples_to_seconds);
-			t_sample wrap_216 = wrap(phasor_217, ((int)0), ((int)1));
-			t_sample mul_213 = (wrap_216 * int_218);
-			t_sample wrap_211 = wrap(mul_213, ((int)0), ((int)1));
-			t_sample delta_209 = __m_delta_62(wrap_211);
-			t_sample abs_208 = fabs(delta_209);
-			int gt_207 = (abs_208 > ((t_sample)0.9));
-			t_sample mul_204 = (mul_213 * ((t_sample)3.767));
-			t_sample floor_202 = floor((mul_203 + mul_204));
-			__m_latch_63 = ((gt_207 != 0) ? floor_202 : __m_latch_63);
-			t_sample latch_205 = __m_latch_63;
-			t_sample add_210 = (wrap_211 + latch_205);
-			t_sample div_200 = safediv(add_210, int_218);
-			t_sample wrap_199 = wrap(div_200, ((int)0), ((int)1));
-			double sample_index_64 = (wrap_199 * (nobufA_dim - 1));
+			t_sample sample_nobufC_341 = readinterp_50;
+			t_sample index_nobufC_342 = sample_index_42;
+			t_sample noise_559 = noise();
+			t_sample noise_540 = noise();
+			t_sample noise_401 = noise();
+			t_sample abs_416 = fabs(noise_401);
+			t_sample mul_415 = (abs_416 * ((t_sample)0.25));
+			t_sample add_393 = (mul_415 + ((int)1));
+			t_sample mul_455 = (add_393 * mstosamps_453);
+			t_sample noise_400 = noise();
+			t_sample abs_412 = fabs(noise_400);
+			t_sample mul_411 = (abs_412 * ((t_sample)0.25));
+			t_sample add_392 = (mul_411 + ((int)3));
+			t_sample mul_447 = (add_392 * mul_389);
+			t_sample noise_399 = noise();
+			t_sample abs_408 = fabs(noise_399);
+			t_sample mul_407 = (abs_408 * ((t_sample)0.25));
+			t_sample add_391 = (mul_407 + ((t_sample)1.7));
+			t_sample mul_431 = (add_391 * mstosamps_453);
+			t_sample noise_398 = noise();
+			t_sample abs_404 = fabs(noise_398);
+			t_sample mul_403 = (abs_404 * ((t_sample)0.25));
+			t_sample add_390 = (mul_403 + ((t_sample)2.37));
+			t_sample mul_424 = (add_390 * mstosamps_453);
+			t_sample phasor_461 = __m_phasor_51(div_437, samples_to_seconds);
+			t_sample add_460 = (phasor_461 + ((int)0));
+			t_sample mod_459 = safemod(add_460, ((int)1));
+			t_sample delta_418 = __m_delta_52(mod_459);
+			t_sample sah_417 = __m_sah_53(mul_455, delta_418, ((int)0));
+			t_sample mul_397 = (sah_417 * mod_459);
+			t_sample sub_458 = (mod_459 - ((t_sample)0.5));
+			t_sample mul_457 = (sub_458 * ((t_sample)3.1415926535898));
+			t_sample cos_456 = cos(mul_457);
+			t_sample mul_422 = (cos_456 * cos_456);
+			t_sample add_452 = (phasor_461 + ((t_sample)0.25));
+			t_sample mod_451 = safemod(add_452, ((int)1));
+			t_sample delta_414 = __m_delta_54(mod_451);
+			t_sample sah_413 = __m_sah_55(mul_447, delta_414, ((int)0));
+			t_sample mul_396 = (sah_413 * mod_451);
+			t_sample sub_450 = (mod_451 - ((t_sample)0.5));
+			t_sample mul_449 = (sub_450 * ((t_sample)3.1415926535898));
+			t_sample cos_448 = cos(mul_449);
+			t_sample mul_421 = (cos_448 * cos_448);
+			t_sample add_436 = (phasor_461 + ((t_sample)0.5));
+			t_sample mod_435 = safemod(add_436, ((int)1));
+			t_sample delta_410 = __m_delta_56(mod_435);
+			t_sample sah_409 = __m_sah_57(mul_431, delta_410, ((int)0));
+			t_sample mul_395 = (sah_409 * mod_435);
+			t_sample sub_434 = (mod_435 - ((t_sample)0.5));
+			t_sample mul_433 = (sub_434 * ((t_sample)3.1415926535898));
+			t_sample cos_432 = cos(mul_433);
+			t_sample mul_420 = (cos_432 * cos_432);
+			t_sample add_429 = (phasor_461 + ((t_sample)0.75));
+			t_sample mod_428 = safemod(add_429, ((int)1));
+			t_sample delta_406 = __m_delta_58(mod_428);
+			t_sample sah_405 = __m_sah_59(mul_424, delta_406, ((int)0));
+			t_sample mul_394 = (sah_405 * mod_428);
+			t_sample tap_443 = m_delay_3.read_linear(mul_397);
+			t_sample tap_444 = m_delay_3.read_linear(mul_396);
+			t_sample tap_445 = m_delay_3.read_linear(mul_395);
+			t_sample tap_446 = m_delay_3.read_linear(mul_394);
+			t_sample mul_441 = (tap_443 * mul_422);
+			t_sample mul_430 = (tap_445 * mul_420);
+			t_sample gen_462 = (mul_430 + mul_441);
+			t_sample mul_440 = (tap_444 * mul_421);
+			t_sample sub_427 = (mod_428 - ((t_sample)0.5));
+			t_sample mul_426 = (sub_427 * ((t_sample)3.1415926535898));
+			t_sample cos_425 = cos(mul_426);
+			t_sample mul_419 = (cos_425 * cos_425);
+			t_sample mul_423 = (tap_446 * mul_419);
+			t_sample gen_463 = (mul_423 + mul_440);
+			t_sample mul_387 = (gen_462 * ((t_sample)0.666));
+			t_sample mul_386 = (gen_463 * ((t_sample)0.666));
+			t_sample phasor_385 = __m_phasor_60(((int)22), samples_to_seconds);
+			t_sample triangle_383 = triangle(phasor_385, ((t_sample)0.5));
+			t_sample mul_382 = (mul_387 * triangle_383);
+			t_sample mul_378 = (mul_382 * clamp_379);
+			t_sample mul_381 = (mul_386 * triangle_383);
+			t_sample mul_377 = (mul_381 * clamp_379);
+			t_sample mul_556 = (noise_559 * m_A_12);
+			t_sample mul_537 = (noise_540 * m_A_12);
+			t_sample phasor_570 = __m_phasor_61(div_491, samples_to_seconds);
+			t_sample wrap_569 = wrap(phasor_570, ((int)0), ((int)1));
+			t_sample mul_566 = (wrap_569 * int_571);
+			t_sample wrap_564 = wrap(mul_566, ((int)0), ((int)1));
+			t_sample delta_562 = __m_delta_62(wrap_564);
+			t_sample abs_561 = fabs(delta_562);
+			int gt_560 = (abs_561 > ((t_sample)0.9));
+			t_sample mul_557 = (mul_566 * ((t_sample)3.767));
+			t_sample floor_555 = floor((mul_556 + mul_557));
+			__m_latch_63 = ((gt_560 != 0) ? floor_555 : __m_latch_63);
+			t_sample latch_558 = __m_latch_63;
+			t_sample add_563 = (wrap_564 + latch_558);
+			t_sample div_553 = safediv(add_563, int_571);
+			t_sample wrap_552 = wrap(div_553, ((int)0), ((int)1));
+			double sample_index_64 = (wrap_552 * (nobufA_dim - 1));
 			int index_trunc_65 = fixnan(floor(sample_index_64));
 			double index_fract_66 = (sample_index_64 - index_trunc_65);
 			int index_trunc_67 = (index_trunc_65 + 1);
 			bool index_ignore_68 = ((index_trunc_65 >= nobufA_dim) || (index_trunc_65 < 0));
 			bool index_ignore_69 = ((index_trunc_67 >= nobufA_dim) || (index_trunc_67 < 0));
 			// phase nobufA channel 1;
-			double read_nobufA_70 = (index_ignore_68 ? 0 : m_nobufA_10.read(index_trunc_65, 0));
-			double read_nobufA_71 = (index_ignore_69 ? 0 : m_nobufA_10.read(index_trunc_67, 0));
+			double read_nobufA_70 = (index_ignore_68 ? 0 : m_nobufA_7.read(index_trunc_65, 0));
+			double read_nobufA_71 = (index_ignore_69 ? 0 : m_nobufA_7.read(index_trunc_67, 0));
 			double readinterp_72 = linear_interp(index_fract_66, read_nobufA_70, read_nobufA_71);
-			t_sample sample_nobufA_214 = readinterp_72;
-			t_sample index_nobufA_215 = sample_index_64;
-			t_sample abs_165 = fabs(noise_206);
-			t_sample phasor_172 = __m_phasor_73(scale_171, samples_to_seconds);
-			t_sample delta_168 = __m_delta_74(phasor_172);
-			t_sample abs_167 = fabs(delta_168);
-			int gt_166 = (abs_167 > ((t_sample)0.9));
-			__m_latch_75 = ((gt_166 != 0) ? m_history_2 : __m_latch_75);
-			t_sample latch_160 = __m_latch_75;
-			__m_latch_76 = ((gt_166 != 0) ? abs_165 : __m_latch_76);
-			t_sample latch_169 = __m_latch_76;
-			t_sample mix_604 = (latch_160 + (phasor_172 * (latch_169 - latch_160)));
-			t_sample mix_162 = mix_604;
-			t_sample mul_164 = (sample_nobufA_214 * mix_162);
-			t_sample rsub_170 = (((int)1) - mix_162);
-			t_sample mul_163 = (sample_nobufA_214 * rsub_170);
-			t_sample history_161_next_176 = fixdenorm(mix_162);
-			t_sample mul_5 = (mul_164 * clamp_8);
-			t_sample mul_6 = (mul_163 * clamp_8);
-			t_sample phasor_198 = __m_phasor_77(div_137, samples_to_seconds);
-			t_sample wrap_197 = wrap(phasor_198, ((int)0), ((int)1));
-			t_sample mul_194 = (wrap_197 * int_218);
-			t_sample wrap_192 = wrap(mul_194, ((int)0), ((int)1));
-			t_sample delta_190 = __m_delta_78(wrap_192);
-			t_sample abs_189 = fabs(delta_190);
-			int gt_188 = (abs_189 > ((t_sample)0.9));
-			t_sample mul_185 = (mul_194 * ((t_sample)3.767));
-			t_sample floor_183 = floor((mul_185 + mul_184));
-			__m_latch_79 = ((gt_188 != 0) ? floor_183 : __m_latch_79);
-			t_sample latch_186 = __m_latch_79;
-			t_sample add_191 = (wrap_192 + latch_186);
-			t_sample div_181 = safediv(add_191, int_218);
-			t_sample wrap_180 = wrap(div_181, ((int)0), ((int)1));
-			double sample_index_80 = (wrap_180 * (nobufB_dim - 1));
+			t_sample sample_nobufA_567 = readinterp_72;
+			t_sample index_nobufA_568 = sample_index_64;
+			t_sample abs_521 = fabs(noise_559);
+			t_sample phasor_528 = __m_phasor_73(scale_527, samples_to_seconds);
+			t_sample delta_524 = __m_delta_74(phasor_528);
+			t_sample abs_523 = fabs(delta_524);
+			int gt_522 = (abs_523 > ((t_sample)0.9));
+			__m_latch_75 = ((gt_522 != 0) ? m_history_2 : __m_latch_75);
+			t_sample latch_516 = __m_latch_75;
+			__m_latch_76 = ((gt_522 != 0) ? abs_521 : __m_latch_76);
+			t_sample latch_525 = __m_latch_76;
+			t_sample mix_598 = (latch_516 + (phasor_528 * (latch_525 - latch_516)));
+			t_sample mix_518 = mix_598;
+			t_sample mul_520 = (sample_nobufA_567 * mix_518);
+			t_sample rsub_526 = (((int)1) - mix_518);
+			t_sample mul_519 = (sample_nobufA_567 * rsub_526);
+			t_sample history_517_next_529 = fixdenorm(mix_518);
+			t_sample mul_371 = (mul_520 * clamp_374);
+			t_sample mul_372 = (mul_519 * clamp_374);
+			t_sample phasor_551 = __m_phasor_77(div_496, samples_to_seconds);
+			t_sample wrap_550 = wrap(phasor_551, ((int)0), ((int)1));
+			t_sample mul_547 = (wrap_550 * int_571);
+			t_sample wrap_545 = wrap(mul_547, ((int)0), ((int)1));
+			t_sample delta_543 = __m_delta_78(wrap_545);
+			t_sample abs_542 = fabs(delta_543);
+			int gt_541 = (abs_542 > ((t_sample)0.9));
+			t_sample mul_538 = (mul_547 * ((t_sample)3.767));
+			t_sample floor_536 = floor((mul_538 + mul_537));
+			__m_latch_79 = ((gt_541 != 0) ? floor_536 : __m_latch_79);
+			t_sample latch_539 = __m_latch_79;
+			t_sample add_544 = (wrap_545 + latch_539);
+			t_sample div_534 = safediv(add_544, int_571);
+			t_sample wrap_533 = wrap(div_534, ((int)0), ((int)1));
+			double sample_index_80 = (wrap_533 * (nobufB_dim - 1));
 			int index_trunc_81 = fixnan(floor(sample_index_80));
 			double index_fract_82 = (sample_index_80 - index_trunc_81);
 			int index_trunc_83 = (index_trunc_81 + 1);
 			bool index_ignore_84 = ((index_trunc_81 >= nobufB_dim) || (index_trunc_81 < 0));
 			bool index_ignore_85 = ((index_trunc_83 >= nobufB_dim) || (index_trunc_83 < 0));
 			// phase nobufB channel 1;
-			double read_nobufB_86 = (index_ignore_84 ? 0 : m_nobufB_15.read(index_trunc_81, 0));
-			double read_nobufB_87 = (index_ignore_85 ? 0 : m_nobufB_15.read(index_trunc_83, 0));
+			double read_nobufB_86 = (index_ignore_84 ? 0 : m_nobufB_9.read(index_trunc_81, 0));
+			double read_nobufB_87 = (index_ignore_85 ? 0 : m_nobufB_9.read(index_trunc_83, 0));
 			double readinterp_88 = linear_interp(index_fract_82, read_nobufB_86, read_nobufB_87);
-			t_sample sample_nobufB_195 = readinterp_88;
-			t_sample index_nobufB_196 = sample_index_80;
-			t_sample abs_143 = fabs(noise_187);
-			t_sample phasor_150 = __m_phasor_89(scale_149, samples_to_seconds);
-			t_sample delta_146 = __m_delta_90(phasor_150);
-			t_sample abs_145 = fabs(delta_146);
-			int gt_144 = (abs_145 > ((t_sample)0.9));
-			__m_latch_91 = ((gt_144 != 0) ? m_history_1 : __m_latch_91);
-			t_sample latch_138 = __m_latch_91;
-			__m_latch_92 = ((gt_144 != 0) ? abs_143 : __m_latch_92);
-			t_sample latch_147 = __m_latch_92;
-			t_sample mix_609 = (latch_138 + (phasor_150 * (latch_147 - latch_138)));
-			t_sample mix_140 = mix_609;
-			t_sample mul_142 = (sample_nobufB_195 * mix_140);
-			t_sample rsub_148 = (((int)1) - mix_140);
-			t_sample mul_141 = (sample_nobufB_195 * rsub_148);
-			t_sample history_139_next_154 = fixdenorm(mix_140);
-			t_sample mul_2 = (mul_142 * clamp_8);
-			t_sample OutLeft_159 = ((((sample_nobufC_477 + mul_2) + mul_5) + mul_12) + mul_1);
-			t_sample out1 = OutLeft_159;
-			t_sample mul_3 = (mul_141 * clamp_8);
-			t_sample OutRight_158 = ((((sample_nobufC_477 + mul_6) + mul_11) + mul_1) + mul_3);
-			t_sample out2 = OutRight_158;
-			m_delay_6.write(plusequals_463);
-			m_delay_5.write(plusequals_117);
-			m_delay_4.write(plusequals_110);
+			t_sample sample_nobufB_548 = readinterp_88;
+			t_sample index_nobufB_549 = sample_index_80;
+			t_sample abs_502 = fabs(noise_540);
+			t_sample phasor_509 = __m_phasor_89(scale_508, samples_to_seconds);
+			t_sample delta_505 = __m_delta_90(phasor_509);
+			t_sample abs_504 = fabs(delta_505);
+			int gt_503 = (abs_504 > ((t_sample)0.9));
+			__m_latch_91 = ((gt_503 != 0) ? m_history_1 : __m_latch_91);
+			t_sample latch_497 = __m_latch_91;
+			__m_latch_92 = ((gt_503 != 0) ? abs_502 : __m_latch_92);
+			t_sample latch_506 = __m_latch_92;
+			t_sample mix_603 = (latch_497 + (phasor_509 * (latch_506 - latch_497)));
+			t_sample mix_499 = mix_603;
+			t_sample mul_501 = (sample_nobufB_548 * mix_499);
+			t_sample rsub_507 = (((int)1) - mix_499);
+			t_sample mul_500 = (sample_nobufB_548 * rsub_507);
+			t_sample history_498_next_510 = fixdenorm(mix_499);
+			t_sample mul_368 = (mul_501 * clamp_374);
+			t_sample OutLeft_515 = ((((mul_368 + mul_371) + mul_378) + gen_367) + sample_nobufC_341);
+			t_sample out1 = OutLeft_515;
+			t_sample mul_369 = (mul_500 * clamp_374);
+			t_sample OutRight_514 = ((((mul_372 + mul_377) + gen_367) + sample_nobufC_341) + mul_369);
+			t_sample out2 = OutRight_514;
+			m_delay_6.write(plusequals_473);
+			m_delay_5.write(plusequals_480);
+			m_delay_4.write(plusequals_345);
 			m_delay_3.write(in1);
-			m_history_2 = history_161_next_176;
-			m_history_1 = history_139_next_154;
+			m_history_2 = history_517_next_529;
+			m_history_1 = history_498_next_510;
 			m_delay_3.step();
 			m_delay_4.step();
 			m_delay_5.step();
@@ -518,32 +525,62 @@ typedef struct State {
 		return __exception;
 		
 	};
-	inline void set_C(t_param _value) {
-		m_C_7 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
-	};
-	inline void set_D(t_param _value) {
-		m_D_8 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
-	};
-	inline void set_ButtonA(t_param _value) {
-		m_ButtonA_9 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
-	};
 	inline void set_nobufA(void * _value) {
-		m_nobufA_10.setbuffer(_value);
-	};
-	inline void set_A(t_param _value) {
-		m_A_11 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
-	};
-	inline void set_nobufC(void * _value) {
-		m_nobufC_12.setbuffer(_value);
-	};
-	inline void set_ButtonB(t_param _value) {
-		m_ButtonB_13 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_nobufA_7.setbuffer(_value);
 	};
 	inline void set_B(t_param _value) {
-		m_B_14 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+		m_B_8 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
 	};
 	inline void set_nobufB(void * _value) {
-		m_nobufB_15.setbuffer(_value);
+		m_nobufB_9.setbuffer(_value);
+	};
+	inline void set_D(t_param _value) {
+		m_D_10 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+	};
+	inline void set_C(t_param _value) {
+		m_C_11 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+	};
+	inline void set_A(t_param _value) {
+		m_A_12 = (_value < 0.0001 ? 0.0001 : (_value > 0.9999 ? 0.9999 : _value));
+	};
+	inline void set_ButtonA(t_param _value) {
+		m_ButtonA_13 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_ButtonB(t_param _value) {
+		m_ButtonB_14 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_nobufC(void * _value) {
+		m_nobufC_15.setbuffer(_value);
+	};
+	inline t_sample trapezoid_d_d_d_d_d(t_sample x, t_sample a, t_sample b, t_sample c, t_sample d) {
+		t_sample _trapezoid_ret_364 = ((int)0);
+		if ((x < a)) {
+			_trapezoid_ret_364 = ((int)0);
+			
+		} else {
+			if ((x < b)) {
+				_trapezoid_ret_364 = safediv((x - a), (b - a));
+				
+			} else {
+				if ((x < c)) {
+					_trapezoid_ret_364 = ((int)1);
+					
+				} else {
+					if ((x < d)) {
+						_trapezoid_ret_364 = safediv((d - x), (d - c));
+						
+					} else {
+						_trapezoid_ret_364 = ((int)0);
+						
+					};
+					
+				};
+				
+			};
+			
+		};
+		return _trapezoid_ret_364;
+		
 	};
 	
 } State;
@@ -605,12 +642,12 @@ void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
-		case 0: *value = self->m_A_11; break;
-		case 1: *value = self->m_B_14; break;
-		case 2: *value = self->m_ButtonA_9; break;
-		case 3: *value = self->m_ButtonB_13; break;
-		case 4: *value = self->m_C_7; break;
-		case 5: *value = self->m_D_8; break;
+		case 0: *value = self->m_A_12; break;
+		case 1: *value = self->m_B_8; break;
+		case 2: *value = self->m_ButtonA_13; break;
+		case 3: *value = self->m_ButtonB_14; break;
+		case 4: *value = self->m_C_11; break;
+		case 5: *value = self->m_D_10; break;
 		
 		
 		
@@ -696,11 +733,11 @@ void *create(t_param sr, long vs) {
 	self->__commonstate.vs = vs;
 	self->__commonstate.params = (ParamInfo *)genlib_sysmem_newptr(9 * sizeof(ParamInfo));
 	self->__commonstate.numparams = 9;
-	// initialize parameter 0 ("m_A_11")
+	// initialize parameter 0 ("m_A_12")
 	pi = self->__commonstate.params + 0;
 	pi->name = "A";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_A_11;
+	pi->defaultvalue = self->m_A_12;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -710,11 +747,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 1 ("m_B_14")
+	// initialize parameter 1 ("m_B_8")
 	pi = self->__commonstate.params + 1;
 	pi->name = "B";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_B_14;
+	pi->defaultvalue = self->m_B_8;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -724,11 +761,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 2 ("m_ButtonA_9")
+	// initialize parameter 2 ("m_ButtonA_13")
 	pi = self->__commonstate.params + 2;
 	pi->name = "ButtonA";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonA_9;
+	pi->defaultvalue = self->m_ButtonA_13;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -738,11 +775,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 3 ("m_ButtonB_13")
+	// initialize parameter 3 ("m_ButtonB_14")
 	pi = self->__commonstate.params + 3;
 	pi->name = "ButtonB";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonB_13;
+	pi->defaultvalue = self->m_ButtonB_14;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -752,11 +789,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 4 ("m_C_7")
+	// initialize parameter 4 ("m_C_11")
 	pi = self->__commonstate.params + 4;
 	pi->name = "C";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_C_7;
+	pi->defaultvalue = self->m_C_11;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -766,11 +803,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 5 ("m_D_8")
+	// initialize parameter 5 ("m_D_10")
 	pi = self->__commonstate.params + 5;
 	pi->name = "D";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_D_8;
+	pi->defaultvalue = self->m_D_10;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -780,7 +817,7 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 0.9999;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 6 ("m_nobufA_10")
+	// initialize parameter 6 ("m_nobufA_7")
 	pi = self->__commonstate.params + 6;
 	pi->name = "nobufA";
 	pi->paramtype = GENLIB_PARAMTYPE_SYM;
@@ -794,7 +831,7 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 7 ("m_nobufB_15")
+	// initialize parameter 7 ("m_nobufB_9")
 	pi = self->__commonstate.params + 7;
 	pi->name = "nobufB";
 	pi->paramtype = GENLIB_PARAMTYPE_SYM;
@@ -808,7 +845,7 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 8 ("m_nobufC_12")
+	// initialize parameter 8 ("m_nobufC_15")
 	pi = self->__commonstate.params + 8;
 	pi->name = "nobufC";
 	pi->paramtype = GENLIB_PARAMTYPE_SYM;
