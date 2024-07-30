@@ -68,46 +68,40 @@ static const int GENLIB_LOOPCOUNT_BAIL = 100000;
 // The State struct contains all the state and procedures for the gendsp kernel
 typedef struct State {
 	CommonState __commonstate;
-	Phasor __m_phasor_15;
-	Phasor __m_phasor_14;
 	int __exception;
 	int vectorsize;
-	t_sample m_B_11;
-	t_sample m_ButtonB_10;
-	t_sample m_AA_1;
-	t_sample m_AB_12;
-	t_sample samples_to_seconds;
-	t_sample m_gate_13;
-	t_sample m_A_9;
-	t_sample m_gain_8;
-	t_sample m_freq_6;
-	t_sample m_AD_2;
+	t_sample m_D_8;
+	t_sample m_AC_9;
+	t_sample m_B_10;
+	t_sample m_AB_11;
+	t_sample m_A_7;
+	t_sample m_ButtonA_6;
+	t_sample m_gain_5;
+	t_sample m_freq_4;
 	t_sample samplerate;
-	t_sample m_C_3;
-	t_sample m_AC_5;
-	t_sample m_ButtonA_4;
-	t_sample m_D_7;
+	t_sample m_gate_12;
+	t_sample m_ButtonB_1;
+	t_sample m_AA_3;
+	t_sample m_C_2;
+	t_sample m_AD_13;
 	// re-initialize all member variables;
 	inline void reset(t_param __sr, int __vs) {
 		__exception = 0;
 		vectorsize = __vs;
 		samplerate = __sr;
-		m_AA_1 = 0.5;
-		m_AD_2 = 0.5;
-		m_C_3 = 0.5;
-		m_ButtonA_4 = 0.5;
-		m_AC_5 = 0.5;
-		m_freq_6 = 400;
-		m_D_7 = 0.5;
-		m_gain_8 = ((int)0);
-		m_A_9 = 0.5;
-		m_ButtonB_10 = 0.5;
-		m_B_11 = 0.5;
-		m_AB_12 = 0.5;
-		m_gate_13 = ((int)0);
-		samples_to_seconds = (1 / samplerate);
-		__m_phasor_14.reset(0);
-		__m_phasor_15.reset(0);
+		m_ButtonB_1 = 0.5;
+		m_C_2 = 0.5;
+		m_AA_3 = 0.5;
+		m_freq_4 = 400;
+		m_gain_5 = ((int)0);
+		m_ButtonA_6 = 0.5;
+		m_A_7 = 0.5;
+		m_D_8 = 0.5;
+		m_AC_9 = 0.5;
+		m_B_10 = 0.5;
+		m_AB_11 = 0.5;
+		m_gate_12 = ((int)0);
+		m_AD_13 = 0.5;
 		genlib_reset_complete(this);
 		
 	};
@@ -129,20 +123,15 @@ typedef struct State {
 			return __exception;
 			
 		};
-		samples_to_seconds = (1 / samplerate);
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
 			const t_sample in2 = (*(__in2++));
-			t_sample out4 = ((int)0);
 			t_sample out3 = ((int)0);
+			t_sample out4 = ((int)0);
 			t_sample out5 = ((int)0);
-			t_sample phasor_79 = __m_phasor_14(((int)66), samples_to_seconds);
-			t_sample mul_77 = (phasor_79 * m_B_11);
-			t_sample out2 = mul_77;
-			t_sample phasor_76 = __m_phasor_15(((int)44), samples_to_seconds);
-			t_sample mul_75 = (phasor_76 * m_A_9);
-			t_sample out1 = mul_75;
+			t_sample out1 = in1;
+			t_sample out2 = in2;
 			// assign results to output buffer;
 			(*(__out1++)) = out1;
 			(*(__out2++)) = out2;
@@ -154,44 +143,44 @@ typedef struct State {
 		return __exception;
 		
 	};
-	inline void set_AA(t_param _value) {
-		m_AA_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
-	};
-	inline void set_AD(t_param _value) {
-		m_AD_2 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	inline void set_ButtonB(t_param _value) {
+		m_ButtonB_1 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_C(t_param _value) {
-		m_C_3 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_C_2 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
-	inline void set_ButtonA(t_param _value) {
-		m_ButtonA_4 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
-	};
-	inline void set_AC(t_param _value) {
-		m_AC_5 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	inline void set_AA(t_param _value) {
+		m_AA_3 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_freq(t_param _value) {
-		m_freq_6 = (_value < 20 ? 20 : (_value > 20000 ? 20000 : _value));
-	};
-	inline void set_D(t_param _value) {
-		m_D_7 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_freq_4 = (_value < 20 ? 20 : (_value > 20000 ? 20000 : _value));
 	};
 	inline void set_gain(t_param _value) {
-		m_gain_8 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_gain_5 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_ButtonA(t_param _value) {
+		m_ButtonA_6 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_A(t_param _value) {
-		m_A_9 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_A_7 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
-	inline void set_ButtonB(t_param _value) {
-		m_ButtonB_10 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	inline void set_D(t_param _value) {
+		m_D_8 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_AC(t_param _value) {
+		m_AC_9 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_B(t_param _value) {
-		m_B_11 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_B_10 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_AB(t_param _value) {
-		m_AB_12 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_AB_11 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	inline void set_gate(t_param _value) {
-		m_gate_13 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+		m_gate_12 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
+	};
+	inline void set_AD(t_param _value) {
+		m_AD_13 = (_value < 0 ? 0 : (_value > 1 ? 1 : _value));
 	};
 	
 } State;
@@ -257,19 +246,19 @@ void setparameter(CommonState *cself, long index, t_param value, void *ref) {
 void getparameter(CommonState *cself, long index, t_param *value) {
 	State *self = (State *)cself;
 	switch (index) {
-		case 0: *value = self->m_A_9; break;
-		case 1: *value = self->m_AA_1; break;
-		case 2: *value = self->m_AB_12; break;
-		case 3: *value = self->m_AC_5; break;
-		case 4: *value = self->m_AD_2; break;
-		case 5: *value = self->m_B_11; break;
-		case 6: *value = self->m_ButtonA_4; break;
-		case 7: *value = self->m_ButtonB_10; break;
-		case 8: *value = self->m_C_3; break;
-		case 9: *value = self->m_D_7; break;
-		case 10: *value = self->m_freq_6; break;
-		case 11: *value = self->m_gain_8; break;
-		case 12: *value = self->m_gate_13; break;
+		case 0: *value = self->m_A_7; break;
+		case 1: *value = self->m_AA_3; break;
+		case 2: *value = self->m_AB_11; break;
+		case 3: *value = self->m_AC_9; break;
+		case 4: *value = self->m_AD_13; break;
+		case 5: *value = self->m_B_10; break;
+		case 6: *value = self->m_ButtonA_6; break;
+		case 7: *value = self->m_ButtonB_1; break;
+		case 8: *value = self->m_C_2; break;
+		case 9: *value = self->m_D_8; break;
+		case 10: *value = self->m_freq_4; break;
+		case 11: *value = self->m_gain_5; break;
+		case 12: *value = self->m_gate_12; break;
 		
 		default: break;
 	}
@@ -352,11 +341,11 @@ void *create(t_param sr, long vs) {
 	self->__commonstate.vs = vs;
 	self->__commonstate.params = (ParamInfo *)genlib_sysmem_newptr(13 * sizeof(ParamInfo));
 	self->__commonstate.numparams = 13;
-	// initialize parameter 0 ("m_A_9")
+	// initialize parameter 0 ("m_A_7")
 	pi = self->__commonstate.params + 0;
 	pi->name = "A";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_A_9;
+	pi->defaultvalue = self->m_A_7;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -366,11 +355,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 1 ("m_AA_1")
+	// initialize parameter 1 ("m_AA_3")
 	pi = self->__commonstate.params + 1;
 	pi->name = "AA";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_AA_1;
+	pi->defaultvalue = self->m_AA_3;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -380,11 +369,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 2 ("m_AB_12")
+	// initialize parameter 2 ("m_AB_11")
 	pi = self->__commonstate.params + 2;
 	pi->name = "AB";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_AB_12;
+	pi->defaultvalue = self->m_AB_11;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -394,11 +383,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 3 ("m_AC_5")
+	// initialize parameter 3 ("m_AC_9")
 	pi = self->__commonstate.params + 3;
 	pi->name = "AC";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_AC_5;
+	pi->defaultvalue = self->m_AC_9;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -408,11 +397,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 4 ("m_AD_2")
+	// initialize parameter 4 ("m_AD_13")
 	pi = self->__commonstate.params + 4;
 	pi->name = "AD";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_AD_2;
+	pi->defaultvalue = self->m_AD_13;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -422,11 +411,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 5 ("m_B_11")
+	// initialize parameter 5 ("m_B_10")
 	pi = self->__commonstate.params + 5;
 	pi->name = "B";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_B_11;
+	pi->defaultvalue = self->m_B_10;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -436,11 +425,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 6 ("m_ButtonA_4")
+	// initialize parameter 6 ("m_ButtonA_6")
 	pi = self->__commonstate.params + 6;
 	pi->name = "ButtonA";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonA_4;
+	pi->defaultvalue = self->m_ButtonA_6;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -450,11 +439,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 7 ("m_ButtonB_10")
+	// initialize parameter 7 ("m_ButtonB_1")
 	pi = self->__commonstate.params + 7;
 	pi->name = "ButtonB";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_ButtonB_10;
+	pi->defaultvalue = self->m_ButtonB_1;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -464,11 +453,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 8 ("m_C_3")
+	// initialize parameter 8 ("m_C_2")
 	pi = self->__commonstate.params + 8;
 	pi->name = "C";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_C_3;
+	pi->defaultvalue = self->m_C_2;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -478,11 +467,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 9 ("m_D_7")
+	// initialize parameter 9 ("m_D_8")
 	pi = self->__commonstate.params + 9;
 	pi->name = "D";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_D_7;
+	pi->defaultvalue = self->m_D_8;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -492,11 +481,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 10 ("m_freq_6")
+	// initialize parameter 10 ("m_freq_4")
 	pi = self->__commonstate.params + 10;
 	pi->name = "freq";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_freq_6;
+	pi->defaultvalue = self->m_freq_4;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -506,11 +495,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 20000;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 11 ("m_gain_8")
+	// initialize parameter 11 ("m_gain_5")
 	pi = self->__commonstate.params + 11;
 	pi->name = "gain";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_gain_8;
+	pi->defaultvalue = self->m_gain_5;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;
@@ -520,11 +509,11 @@ void *create(t_param sr, long vs) {
 	pi->outputmax = 1;
 	pi->exp = 0;
 	pi->units = "";		// no units defined
-	// initialize parameter 12 ("m_gate_13")
+	// initialize parameter 12 ("m_gate_12")
 	pi = self->__commonstate.params + 12;
 	pi->name = "gate";
 	pi->paramtype = GENLIB_PARAMTYPE_FLOAT;
-	pi->defaultvalue = self->m_gate_13;
+	pi->defaultvalue = self->m_gate_12;
 	pi->defaultref = 0;
 	pi->hasinputminmax = false;
 	pi->inputmin = 0;

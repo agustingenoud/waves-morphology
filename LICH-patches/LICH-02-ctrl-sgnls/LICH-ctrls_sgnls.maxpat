@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 2,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -207,7 +207,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 2,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -253,7 +253,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 2,
+											"revision" : 3,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -445,7 +445,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 2,
+											"revision" : 3,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1037,7 +1037,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 2,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1072,6 +1072,30 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 371.0, 432.0, 28.0, 22.0 ],
+									"text" : "abs"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 67.0, 255.0, 63.0, 22.0 ],
+									"text" : "r OutRight"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-34",
 									"maxclass" : "newobj",
@@ -1124,7 +1148,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 416.0, 375.0, 76.0, 22.0 ],
+									"patching_rect" : [ 414.0, 370.0, 76.0, 22.0 ],
 									"text" : "go.ramp2trig"
 								}
 
@@ -1136,7 +1160,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 373.0, 412.0, 62.0, 22.0 ],
+									"patching_rect" : [ 371.0, 403.0, 62.0, 22.0 ],
 									"text" : "latch"
 								}
 
@@ -1148,7 +1172,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 510.0, 412.0, 28.0, 22.0 ],
+									"patching_rect" : [ 510.0, 403.0, 28.0, 22.0 ],
 									"text" : "abs"
 								}
 
@@ -1160,7 +1184,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 510.0, 375.0, 35.0, 22.0 ],
+									"patching_rect" : [ 510.0, 370.0, 35.0, 22.0 ],
 									"text" : "delta"
 								}
 
@@ -1173,7 +1197,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 510.0, 501.0, 61.0, 47.0 ],
-									"presentation_linecount" : 3,
 									"text" : "Gate Out\n(Assign Button 3)"
 								}
 
@@ -1197,7 +1220,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 373.0, 501.0, 61.0, 47.0 ],
-									"presentation_linecount" : 3,
 									"text" : "CV Out 2 (Assign Output G)"
 								}
 
@@ -1210,7 +1232,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 284.0, 501.0, 61.0, 47.0 ],
-									"presentation_linecount" : 3,
 									"text" : "CV Out 1 (Assign Output F)"
 								}
 
@@ -1221,7 +1242,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 373.0, 459.0, 43.0, 22.0 ],
+									"patching_rect" : [ 371.0, 459.0, 43.0, 22.0 ],
 									"text" : "out 4"
 								}
 
@@ -1282,7 +1303,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 373.0, 375.0, 37.0, 22.0 ],
+									"patching_rect" : [ 371.0, 370.0, 37.0, 22.0 ],
 									"text" : "noise"
 								}
 
@@ -1296,7 +1317,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 583.0, 262.0, 100.0, 49.0 ],
+									"patching_rect" : [ 583.0, 262.0, 103.0, 49.0 ],
 									"text" : "param @name C @min 0.0001 @max 0.9999"
 								}
 
@@ -1479,7 +1500,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-23", 0 ],
+									"destination" : [ "obj-5", 0 ],
 									"source" : [ "obj-26", 0 ]
 								}
 
@@ -1518,6 +1539,13 @@
 									"destination" : [ "obj-30", 0 ],
 									"order" : 1,
 									"source" : [ "obj-36", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-23", 0 ],
+									"source" : [ "obj-5", 0 ]
 								}
 
 							}
@@ -1693,6 +1721,15 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
+					"order" : 1,
+					"source" : [ "obj-24", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"order" : 0,
 					"source" : [ "obj-24", 3 ]
 				}
 
@@ -1714,6 +1751,15 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"order" : 0,
+					"source" : [ "obj-24", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-50", 0 ],
+					"order" : 1,
 					"source" : [ "obj-24", 2 ]
 				}
 
@@ -1809,7 +1855,14 @@
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [  ],
+		"dependency_cache" : [ 			{
+				"name" : "go.ramp2trig.gendsp",
+				"bootpath" : "~/Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"patcherrelativepath" : "../../../../../Documents/Max 8/Packages/GeneratingSoundAndOrganizingTime/patchers",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+ ],
 		"autosave" : 0
 	}
 

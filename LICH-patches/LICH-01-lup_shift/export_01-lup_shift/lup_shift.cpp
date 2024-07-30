@@ -200,7 +200,7 @@ typedef struct State {
 			return __exception;
 			
 		};
-		t_sample expr_436 = ((m_C_8 * ((int)2)) - ((int)1));
+		t_sample expr_476 = ((m_C_8 * ((int)2)) - ((int)1));
 		int nobufB_dim = m_nobufB_13.dim;
 		int nobufB_channels = m_nobufB_13.channels;
 		int dim_146 = nobufB_dim;
@@ -210,38 +210,35 @@ typedef struct State {
 		int nobufC_dim = m_nobufC_14.dim;
 		int nobufC_channels = m_nobufC_14.channels;
 		int dim_9 = nobufC_dim;
-		t_sample sub_443 = (m_D_12 - ((int)0));
-		t_sample scale_440 = ((safepow((sub_443 * ((t_sample)1)), ((int)1)) * ((t_sample)1.25)) + ((int)0));
-		t_sample sub_351 = (scale_440 - ((t_sample)0.25));
 		t_sample paramA_212 = m_A_10;
 		t_sample paramA_190 = paramA_212;
 		samples_to_seconds = (1 / samplerate);
-		t_sample sub_447 = (m_A_10 - ((int)0));
-		t_sample scale_444 = ((safepow((sub_447 * ((t_sample)20)), ((int)1)) * ((int)1)) + ((int)0));
-		t_sample clamp_41 = ((scale_444 <= ((int)0)) ? ((int)0) : ((scale_444 >= ((int)1)) ? ((int)1) : scale_444));
-		t_sample sub_451 = (m_B_9 - ((int)0));
-		t_sample scale_448 = ((safepow((sub_451 * ((t_sample)1)), ((int)1)) * ((int)2)) + ((int)0));
+		t_sample sub_480 = (m_A_10 - ((int)0));
+		t_sample scale_477 = ((safepow((sub_480 * ((t_sample)20)), ((int)1)) * ((int)1)) + ((int)0));
+		t_sample clamp_41 = ((scale_477 <= ((int)0)) ? ((int)0) : ((scale_477 >= ((int)1)) ? ((int)1) : scale_477));
+		t_sample sub_484 = (m_B_9 - ((int)0));
+		t_sample scale_481 = ((safepow((sub_484 * ((t_sample)1)), ((int)1)) * ((int)2)) + ((int)0));
 		t_sample mstosamps_120 = (((int)256) * (samplerate * 0.001));
 		t_sample mul_56 = (mstosamps_120 * ((t_sample)0.2));
-		t_sample rsub_106 = (((int)1) - scale_448);
+		t_sample rsub_106 = (((int)1) - scale_481);
 		t_sample mul_105 = (rsub_106 * ((int)1000));
 		t_sample div_104 = (mul_105 * ((t_sample)0.00390625));
-		t_sample sub_455 = (scale_448 - ((int)0));
-		t_sample scale_452 = ((safepow((sub_455 * ((t_sample)10)), ((int)1)) * ((int)1)) + ((int)0));
-		t_sample clamp_46 = ((scale_452 <= ((int)0)) ? ((int)0) : ((scale_452 >= ((int)1)) ? ((int)1) : scale_452));
-		t_sample sub_459 = (m_A_10 - ((t_sample)0.0001));
-		t_sample scale_456 = ((safepow((sub_459 * ((t_sample)1.000200040008)), ((int)1)) * ((int)8)) + ((int)1));
-		int int_251 = int(scale_456);
+		t_sample sub_488 = (scale_481 - ((int)0));
+		t_sample scale_485 = ((safepow((sub_488 * ((t_sample)10)), ((int)1)) * ((int)1)) + ((int)0));
+		t_sample clamp_46 = ((scale_485 <= ((int)0)) ? ((int)0) : ((scale_485 >= ((int)1)) ? ((int)1) : scale_485));
+		t_sample sub_492 = (m_A_10 - ((t_sample)0.0001));
+		t_sample scale_489 = ((safepow((sub_492 * ((t_sample)1.000200040008)), ((int)1)) * ((int)8)) + ((int)1));
+		int int_251 = int(scale_489);
 		int dim_164 = nobufA_dim;
 		t_sample div_165 = safediv(samplerate, dim_164);
-		t_sample sub_463 = (paramA_212 - ((int)0));
-		t_sample scale_460 = ((safepow((sub_463 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
-		t_sample scale_204 = scale_460;
+		t_sample sub_496 = (paramA_212 - ((int)0));
+		t_sample scale_493 = ((safepow((sub_496 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
+		t_sample scale_204 = scale_493;
 		int dim_163 = nobufB_dim;
 		t_sample div_170 = safediv(samplerate, dim_163);
-		t_sample sub_468 = (paramA_190 - ((int)0));
-		t_sample scale_465 = ((safepow((sub_468 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
-		t_sample scale_182 = scale_465;
+		t_sample sub_501 = (paramA_190 - ((int)0));
+		t_sample scale_498 = ((safepow((sub_501 * ((t_sample)1)), ((int)1)) * ((t_sample)5.8)) + ((t_sample)0.2));
+		t_sample scale_182 = scale_498;
 		// the main sample loop;
 		while ((__n--)) {
 			const t_sample in1 = (*(__in1++));
@@ -319,13 +316,11 @@ typedef struct State {
 			int index_trunc_39 = fixnan(floor(counter_10));
 			int index_wrap_40 = ((index_trunc_39 < 0) ? ((nobufC_dim - 1) + ((index_trunc_39 + 1) % nobufC_dim)) : (index_trunc_39 % nobufC_dim));
 			m_nobufC_14.write(in1, index_wrap_40, 0);
-			t_sample expr_438 = trapezoid_d_d_d_d_d(scale_440, ((t_sample)0.3), ((t_sample)0.4), ((t_sample)0.7), ((t_sample)0.8));
-			t_sample expr_439 = trapezoid_d_d_d_d_d(sub_351, ((t_sample)0.3), ((t_sample)0.4), ((t_sample)0.7), ((t_sample)0.8));
-			t_sample mul_355 = (in1 * expr_438);
-			t_sample mul_349 = (in2 * expr_439);
+			t_sample mul_355 = (in1 * ((int)1));
+			t_sample mul_349 = (in2 * ((int)1));
 			t_sample noise_239 = noise();
 			t_sample noise_220 = noise();
-			t_sample phasor_5 = __m_phasor_41(expr_436, samples_to_seconds);
+			t_sample phasor_5 = __m_phasor_41(expr_476, samples_to_seconds);
 			t_sample wrap_4 = wrap(phasor_5, ((int)0), ((int)1));
 			double sample_index_42 = (wrap_4 * (nobufC_dim - 1));
 			int index_trunc_43 = fixnan(floor(sample_index_42));
@@ -451,8 +446,8 @@ typedef struct State {
 			t_sample latch_193 = __m_latch_75;
 			__m_latch_76 = ((gt_199 != 0) ? abs_198 : __m_latch_76);
 			t_sample latch_202 = __m_latch_76;
-			t_sample mix_464 = (latch_193 + (phasor_205 * (latch_202 - latch_193)));
-			t_sample mix_195 = mix_464;
+			t_sample mix_497 = (latch_193 + (phasor_205 * (latch_202 - latch_193)));
+			t_sample mix_195 = mix_497;
 			t_sample mul_197 = (sample_nobufA_247 * mix_195);
 			t_sample rsub_203 = (((int)1) - mix_195);
 			t_sample mul_196 = (sample_nobufA_247 * rsub_203);
@@ -494,8 +489,8 @@ typedef struct State {
 			t_sample latch_171 = __m_latch_91;
 			__m_latch_92 = ((gt_177 != 0) ? abs_176 : __m_latch_92);
 			t_sample latch_180 = __m_latch_92;
-			t_sample mix_469 = (latch_171 + (phasor_183 * (latch_180 - latch_171)));
-			t_sample mix_173 = mix_469;
+			t_sample mix_502 = (latch_171 + (phasor_183 * (latch_180 - latch_171)));
+			t_sample mix_173 = mix_502;
 			t_sample mul_175 = (sample_nobufB_228 * mix_173);
 			t_sample rsub_181 = (((int)1) - mix_173);
 			t_sample mul_174 = (sample_nobufB_228 * rsub_181);
@@ -548,36 +543,6 @@ typedef struct State {
 	};
 	inline void set_nobufA(void * _value) {
 		m_nobufA_15.setbuffer(_value);
-	};
-	inline t_sample trapezoid_d_d_d_d_d(t_sample x, t_sample a, t_sample b, t_sample c, t_sample d) {
-		t_sample _trapezoid_ret_437 = ((int)0);
-		if ((x < a)) {
-			_trapezoid_ret_437 = ((int)0);
-			
-		} else {
-			if ((x < b)) {
-				_trapezoid_ret_437 = safediv((x - a), (b - a));
-				
-			} else {
-				if ((x < c)) {
-					_trapezoid_ret_437 = ((int)1);
-					
-				} else {
-					if ((x < d)) {
-						_trapezoid_ret_437 = safediv((d - x), (d - c));
-						
-					} else {
-						_trapezoid_ret_437 = ((int)0);
-						
-					};
-					
-				};
-				
-			};
-			
-		};
-		return _trapezoid_ret_437;
-		
 	};
 	
 } State;
