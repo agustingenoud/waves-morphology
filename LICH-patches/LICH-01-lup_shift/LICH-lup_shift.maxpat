@@ -1043,7 +1043,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 375.0, 87.0, 1511.0, 938.0 ],
+						"rect" : [ 319.0, 313.0, 1375.0, 770.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1072,6 +1072,102 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-114",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 800.0, 697.0, 65.0, 22.0 ],
+									"text" : "s OutRight"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-115",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 735.0, 697.0, 57.0, 22.0 ],
+									"text" : "s OutLeft"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-107",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 735.0, 579.0, 95.0, 22.0 ],
+									"text" : "expr (in1 * 2) - 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"color" : [ 0.890196078431372, 0.050980392156863, 0.854901960784314, 1.0 ],
+									"id" : "obj-108",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 735.0, 546.0, 253.0, 22.0 ],
+									"text" : "param @name C @min 0.0001 @max 0.9999"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-110",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 735.0, 661.0, 90.0, 22.0 ],
+									"text" : "sample nobufC"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-112",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 735.0, 635.0, 55.0, 22.0 ],
+									"text" : "wrap 0 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-113",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 735.0, 605.0, 93.0, 22.0 ],
+									"text" : "phasor"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"color" : [ 0.329411764705882, 1.0, 0.0, 1.0 ],
+									"id" : "obj-20",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 506.5, 84.0, 111.0, 22.0 ],
+									"text" : "data nobufC 48000"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-124",
 									"maxclass" : "comment",
@@ -5844,6 +5940,50 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-113", 0 ],
+									"source" : [ "obj-107", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-107", 0 ],
+									"source" : [ "obj-108", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-114", 0 ],
+									"order" : 0,
+									"source" : [ "obj-110", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-115", 0 ],
+									"order" : 1,
+									"source" : [ "obj-110", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-110", 0 ],
+									"source" : [ "obj-112", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-112", 0 ],
+									"source" : [ "obj-113", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-109", 0 ],
 									"source" : [ "obj-116", 0 ]
 								}
@@ -6599,10 +6739,6 @@
 					}
 ,
 					"patching_rect" : [ 203.0, 267.0, 84.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/estudio/Desktop/projectos/waves-morphology/LICH-patches/LICH-01-lup_shift/export_01-lup_shift/"
-					}
-,
 					"text" : "gen~ lup_shift"
 				}
 
