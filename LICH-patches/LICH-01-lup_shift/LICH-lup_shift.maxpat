@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 3,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -207,7 +207,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 3,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -253,7 +253,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -445,7 +445,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1037,13 +1037,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 3,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 261.0, 87.0, 1625.0, 938.0 ],
+						"rect" : [ 375.0, 87.0, 1511.0, 938.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1077,7 +1077,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1034.0, 134.0, 58.0, 20.0 ],
+									"patching_rect" : [ 970.0, 127.0, 58.0, 20.0 ],
 									"text" : "FdRx"
 								}
 
@@ -1089,7 +1089,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1452.0, 757.0, 88.5, 22.0 ],
+									"patching_rect" : [ 1388.0, 750.0, 88.5, 22.0 ],
 									"text" : "*"
 								}
 
@@ -1101,7 +1101,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1103.0, 223.0, 93.0, 22.0 ],
+									"patching_rect" : [ 1039.0, 216.0, 93.0, 22.0 ],
 									"text" : "scale 0 1 0 1.25"
 								}
 
@@ -1113,7 +1113,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1521.0, 256.0, 39.0, 22.0 ],
+									"patching_rect" : [ 1457.0, 249.0, 39.0, 22.0 ],
 									"text" : "- 0.25"
 								}
 
@@ -1129,7 +1129,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 1103.0, 284.0, 437.0, 315.0 ]
+									"patching_rect" : [ 1039.0, 277.0, 437.0, 315.0 ]
 								}
 
 							}
@@ -1140,7 +1140,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1034.0, 757.0, 88.5, 22.0 ],
+									"patching_rect" : [ 970.0, 750.0, 88.5, 22.0 ],
 									"text" : "*"
 								}
 
@@ -1153,7 +1153,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1034.0, 160.0, 28.0, 22.0 ],
+									"patching_rect" : [ 970.0, 153.0, 28.0, 22.0 ],
 									"text" : "in 1"
 								}
 
@@ -1170,13 +1170,13 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "dsp.gen",
-										"rect" : [ 0.0, 0.0, 640.0, 480.0 ],
+										"rect" : [ 1011.0, 420.0, 640.0, 480.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -1425,7 +1425,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1103.0, 169.0, 104.0, 49.0 ],
+									"patching_rect" : [ 1039.0, 162.0, 104.0, 49.0 ],
 									"text" : "param @name D @min 0.0001 @max 0.9999"
 								}
 
@@ -1438,7 +1438,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1064.0, 160.0, 28.0, 22.0 ],
+									"patching_rect" : [ 1000.0, 153.0, 28.0, 22.0 ],
 									"text" : "in 2"
 								}
 
@@ -1683,30 +1683,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-38",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 794.0, 293.0, 47.0, 22.0 ],
-									"text" : "* 0.666"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-37",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 735.0, 293.0, 47.0, 22.0 ],
-									"text" : "* 0.666"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-36",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
@@ -1778,13 +1754,13 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "dsp.gen",
-										"rect" : [ 190.0, 119.0, 913.0, 815.0 ],
+										"rect" : [ 446.0, 276.0, 913.0, 815.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -3716,7 +3692,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4309,7 +4285,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4800,7 +4776,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 3,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -5803,7 +5779,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-116", 0 ],
-									"midpoints" : [ 1073.5, 609.5, 1461.5, 609.5 ],
+									"midpoints" : [ 1009.5, 602.5, 1397.5, 602.5 ],
 									"source" : [ "obj-1", 0 ]
 								}
 
@@ -6026,14 +6002,14 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-37", 0 ],
+									"destination" : [ "obj-49", 0 ],
 									"source" : [ "obj-27", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-38", 0 ],
+									"destination" : [ "obj-50", 0 ],
 									"source" : [ "obj-27", 1 ]
 								}
 
@@ -6113,20 +6089,6 @@
 									"destination" : [ "obj-54", 0 ],
 									"order" : 0,
 									"source" : [ "obj-36", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-49", 0 ],
-									"source" : [ "obj-37", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-50", 0 ],
-									"source" : [ "obj-38", 0 ]
 								}
 
 							}
